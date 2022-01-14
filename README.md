@@ -1,7 +1,7 @@
 # React Course
-This repo contains the code of the projects developed in the React Course provided by [freeCodeCamp.org](https://www.freecodecamp.org/).
+This repo contains the code of the project developed in the React Course provided by [freeCodeCamp.org](https://www.freecodecamp.org/).
 
-Link of the course: [https://www.freecodecamp.org/news/free-react-course-2022/](https://www.freecodecamp.org/news/free-react-course-2022/)
+Link of the course: [https://www.freecodecamp.org/news/learn-react-js-in-this-free-7-hour-course/](https://www.freecodecamp.org/news/learn-react-js-in-this-free-7-hour-course/)
 
 
 # Getting Started with Create React App
