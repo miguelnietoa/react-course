@@ -11,11 +11,14 @@ const initialState = {
 
 // eslint-disable-next-line import/prefer-default-export
 export const useHomeFetch = () => {
+  const [searchTerm, setSearchTerm] = useState('');
   const [state, setState] = useState(initialState);
   const [loading, setLoading] = useState();
   const [error, setError] = useState();
 
-  const fetchMovies = async (page, searchTerm = '') => {
+  console.log(searchTerm);
+
+  const fetchMovies = async page => {
     try {
       setError(false);
       setLoading(true);
@@ -37,5 +40,7 @@ export const useHomeFetch = () => {
     fetchMovies(1);
   }, []);
 
-  return { state, loading, error };
+  return {
+    state, loading, error, setSearchTerm,
+  };
 };
