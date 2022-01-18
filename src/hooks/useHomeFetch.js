@@ -11,16 +11,18 @@ const initialState = {
 
 // eslint-disable-next-line import/prefer-default-export
 export const useHomeFetch = () => {
+  const [searchTerm, setSearchTerm] = useState('');
   const [state, setState] = useState(initialState);
   const [loading, setLoading] = useState();
   const [error, setError] = useState();
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
 
-  const fetchMovies = async (page, searchTerm = '') => {
+  const fetchMovies = async (page, searchTerm_ = '') => {
     try {
       setError(false);
       setLoading(true);
 
-      const movies = await API.fetchMovies(searchTerm, page);
+      const movies = await API.fetchMovies(searchTerm_.trim(), page);
 
       setState(prev => ({
         ...movies,
@@ -32,10 +34,20 @@ export const useHomeFetch = () => {
     }
   };
 
-  // Initial render
+  // Initial and search
   useEffect(() => {
-    fetchMovies(1);
-  }, []);
+    setState(initialState);
+    fetchMovies(1, searchTerm);
+  }, [searchTerm]);
 
-  return { state, loading, error };
+  // Load more
+  useEffect(() => {
+    if (!isLoadingMore) return;
+    fetchMovies(state.page + 1, searchTerm);
+    setIsLoadingMore(false);
+  }, [isLoadingMore, searchTerm, state.page]);
+
+  return {
+    state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore,
+  };
 };
