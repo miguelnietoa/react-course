@@ -6,6 +6,8 @@ import { IMAGE_BASE_URL, POSTER_SIZE } from '../config';
 import BreadCrumb from './BreadCrumb';
 import Grid from './Grid';
 import Spinner from './Spinner';
+import MovieInfo from './MovieInfo';
+import MovieInfoBar from './MovieInfoBar';
 // Hook
 import { useMovieFetch } from '../hooks/useMovieFetch';
 // Image
@@ -20,7 +22,8 @@ function Movie() {
   return (
     <>
       <BreadCrumb movieTitle={movie.original_title} />
-      <p>Hello</p>
+      <MovieInfo movie={movie} />
+      <MovieInfoBar time={movie.runtime} budget={movie.budget} revenue={movie.revenue} />
     </>
   );
 }
