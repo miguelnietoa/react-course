@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import API from '../API';
+// Helpers
+import { isPersistedState } from '../helpers';
 
 // eslint-disable-next-line import/prefer-default-export
 export const useMovieFetch = movieId => {
@@ -32,7 +34,18 @@ export const useMovieFetch = movieId => {
       }
     };
 
+    const sessionState = isPersistedState(movieId);
+    if (sessionState) {
+      setState(sessionState);
+      setLoading(false);
+      return;
+    }
     fetchMovie();
   }, [movieId]);
+
+  // Write to sessionStorage
+  useEffect(() => {
+    sessionStorage.setItem(movieId, JSON.stringify(state));
+  }, [movieId, state]);
   return { state, loading, error };
 };
