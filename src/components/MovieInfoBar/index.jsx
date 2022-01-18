@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
 // Helpers
 import { calcTime, convertMoney } from '../../helpers';
 // Styles
@@ -33,5 +33,11 @@ function MovieInfoBar({ time, budget, revenue }) {
     </Wrapper>
   );
 }
+
+MovieInfoBar.propTypes = {
+  time: PropTypes.number.isRequired,
+  budget: PropTypes.number.isRequired,
+  revenue: PropTypes.number.isRequired,
+};
 
 export default MovieInfoBar;

@@ -1,8 +1,8 @@
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 // Styles
 import { Wrapper, Content } from './BreadCrumb.styles';
 
-// eslint-disable-next-line react/prop-types
 function BreadCrumb({ movieTitle }) {
   return (
     <Wrapper>
@@ -16,5 +16,9 @@ function BreadCrumb({ movieTitle }) {
     </Wrapper>
   );
 }
+
+BreadCrumb.propTypes = {
+  movieTitle: PropTypes.string.isRequired,
+};
 
 export default BreadCrumb;

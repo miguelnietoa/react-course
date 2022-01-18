@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
+// Styles
 import { Wrapper, Content } from './Grid.styles';
 
-// eslint-disable-next-line react/prop-types
 function Grid({ header, children }) {
   return (
     <Wrapper>
@@ -9,5 +10,10 @@ function Grid({ header, children }) {
     </Wrapper>
   );
 }
+
+Grid.propTypes = {
+  header: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};
 
 export default Grid;

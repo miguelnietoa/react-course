@@ -1,9 +1,8 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
 // Components
 import Thumb from '../Thumb';
 // Config
-import { IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE } from '../../config';
+import { IMAGE_BASE_URL, POSTER_SIZE } from '../../config';
 // Image
 import NoImage from '../../images/no_image.jpg';
 // Styles
@@ -44,5 +43,21 @@ function MovieInfo({ movie }) {
     </Wrapper>
   );
 }
+
+MovieInfo.propTypes = {
+  movie: PropTypes.shape({
+    backdrop_path: PropTypes.string,
+    poster_path: PropTypes.string,
+    title: PropTypes.string,
+    overview: PropTypes.string,
+    vote_average: PropTypes.number,
+    directors: PropTypes.arrayOf(
+      PropTypes.shape({
+        credit_id: PropTypes.string,
+        name: PropTypes.string,
+      }),
+    ),
+  }).isRequired,
+};
 
 export default MovieInfo;

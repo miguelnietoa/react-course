@@ -1,8 +1,8 @@
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import { Image } from './Thumb.styles';
 
-// eslint-disable-next-line react/prop-types
 function Thumb({ image, movieId, clickable }) {
   return (
     <div>
@@ -16,5 +16,16 @@ function Thumb({ image, movieId, clickable }) {
     </div>
   );
 }
+
+Thumb.propTypes = {
+  image: PropTypes.string.isRequired,
+  movieId: PropTypes.number,
+  clickable: PropTypes.bool,
+};
+
+Thumb.defaultProps = {
+  clickable: false,
+  movieId: null,
+};
 
 export default Thumb;
