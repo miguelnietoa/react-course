@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 // Config
 import { POSTER_SIZE, BACKDROP_SIZE, IMAGE_BASE_URL } from '../config';
 // Components
