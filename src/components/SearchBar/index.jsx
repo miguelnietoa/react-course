@@ -1,11 +1,10 @@
-/* eslint-disable max-len */
+import PropTypes from 'prop-types';
 import { useState, useEffect, useRef } from 'react';
 // Image
 import searchIcon from '../../images/search-icon.svg';
 // Styles
 import { Wrapper, Content } from './SearchBar.styles';
 
-// eslint-disable-next-line react/prop-types
 function SearchBar({ setSearchTerm }) {
   const [state, setState] = useState('');
   const initial = useRef(true);
@@ -37,5 +36,9 @@ function SearchBar({ setSearchTerm }) {
     </Wrapper>
   );
 }
+
+SearchBar.propTypes = {
+  setSearchTerm: PropTypes.func.isRequired,
+};
 
 export default SearchBar;

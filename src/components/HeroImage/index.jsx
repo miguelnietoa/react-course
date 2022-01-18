@@ -1,7 +1,7 @@
+import PropTypes from 'prop-types';
 // Styles
 import { Wrapper, Content, Text } from './HeroImage.styles';
 
-// eslint-disable-next-line react/prop-types
 function HeroImage({ image, title, text }) {
   return (
     <Wrapper image={image}>
@@ -14,5 +14,11 @@ function HeroImage({ image, title, text }) {
     </Wrapper>
   );
 }
+
+HeroImage.propTypes = {
+  image: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};
 
 export default HeroImage;

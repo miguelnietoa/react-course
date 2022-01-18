@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
+// Styles
 import { Wrapper } from './Button.styles';
 
-// eslint-disable-next-line react/prop-types
 function Button({ text, callback }) {
   return (
     <Wrapper type="button" onClick={callback}>
@@ -8,5 +9,10 @@ function Button({ text, callback }) {
     </Wrapper>
   );
 }
+
+Button.propTypes = {
+  text: PropTypes.string.isRequired,
+  callback: PropTypes.func.isRequired,
+};
 
 export default Button;
