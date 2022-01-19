@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import API from '../API';
+import API, { Movie, Cast, Crew } from '../API';
 // Helpers
 import { isPersistedState } from '../helpers';
+// Types
+export type MovieState = Movie & { actors: Cast[], directors: Crew[] };
 
-// eslint-disable-next-line import/prefer-default-export
-export const useMovieFetch = movieId => {
-  const [state, setState] = useState({});
+export const useMovieFetch = (movieId: string) => {
+  const [state, setState] = useState<MovieState>({} as MovieState);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
